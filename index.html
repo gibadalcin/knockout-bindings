@@ -215,10 +215,6 @@
                 //{description:"", checked: false}
                 self.list = ko.observableArray([]);
 
-                self.name1 = 'Texto e Transparência'
-                self.name2 = 'Controle de Fluxo'
-                self.name3 = 'Campos de Formulário'
-
                 self.list1 = ko.observableArray([
                     'Texto e Transparência',
                     'Visible',
@@ -227,7 +223,7 @@
                     'Style',
                     'Attr'
                 ]);
-                self.chosenNameList1 = ko.observableArray([self.name1]);
+                self.chosenNameList1 = ko.observableArray([]);
                 
                 self.list2 = ko.observableArray([
                     'Controle de Fluxo',
@@ -235,7 +231,7 @@
                     'Foreach',
                     'Ifnot'
                 ]);
-                self.chosenNameList2 = ko.observableArray([self.name2])
+                self.chosenNameList2 = ko.observableArray([])
 
                 self.list3 = ko.observableArray([
                     'Campos de Formulário',
@@ -246,7 +242,7 @@
                     'Checked',
                     'Options'
                 ]);
-                self.chosenNameList3= ko.observableArray([self.name3]);
+                self.chosenNameList3= ko.observableArray([]);
                 
                 self.itemDescription = ko.observable("");
 
