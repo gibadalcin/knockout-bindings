@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Exemplo Knockout</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+            <div class="col-xs-8 col-xs-offset-2">
+                <br>
+                <br>
+                <div class="geralPanel">
+                    <div class="panel">
+                        <div class="panel-heading"><h4>Knockout Bindings</h4></div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12" data-bind="with: alert">
+                                    <div class="alert alert-warning" 
+                                        data-bind = "text: message, 
+                                                     css: {'alert-danger': (type == 'danger'), 'alert-info': type == 'info', 'alert-warning': type == 'warning'},
+                                                     visible: show">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- col left-->
+                                <div class="col-xs-6">
+                                    <strong>Lista de Itens</strong>
+                                    <ul class="list-group" data-bind="foreach: list">
+                                        <li class="list-group-item" data-bind ="css: {'item-checked': $data.check}">
+                                            <input type="checkbox" data-bind = "checked: $data.check"/>
+                                            <!--ko text: description--><!--/ko-->  
+                                        </li>
+                                        <!--<li class="list-group-item item-checked">
+                                            <input type="checkbox" checked/>
+                                        Descrição do Item
+                                        </li>-->
+                                    </ul>
+                                    <div class="col-xs-12">
+                                        <div class="row">
+                                            <div class="col-xs-2 total">Total</div>
+                                            <div class="col-xs-2 total" data-bind="text: list().length" > 0 </div>
+                                            <div class="col-xs-2 total text-center"><input type="checkbox"/> :</div>
+                                            <div class="col-xs-2 total" data-bind="text: notCheckedItens" > 0 </div>
+                                            <div class="col-xs-2 total text-center"><input type="checkbox" checked/> :</div>
+                                            <div class="col-xs-2 total" data-bind="text: checkedItens" > 0 </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--col right-->
+                                <div class="col-xs-6">
+                                    <div class="row">
+                                        <div class="col-xs-12"><label>Descrição do item</label></div>
+                                        <div class="col-xs-12"><input type="text" class="form-control input-sm" data-bind="value: itemDescription"/></div>
+                                        <div class="col-xs-12"><br></div>
+                                        <div class="col-xs-12"><button class="btn btn-primary btn-block" data-bind="click: addItem">Incluir item</button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panelOptions">
+                       <div><select data-bind ="options: list1, selectedOptions: chosenNameList1"></select></div>
+                   
+                        <div><select data-bind ="options: list2, selectedOptions: chosenNameList2"></select></div>
+                  
+                        <div><select data-bind ="options: list3, selectedOptions: chosenNameList3"></select></div>
+                    </div>
+                    <div class="options">
+                        <div class="codeTextView" data-bind="visible: $root.chosenNameList1() == 'Visible'"> 
+                            <div class="htmlText">
+                                <strong>html:</strong> <br>
+                                '<'div><br>
+                                    '<'select data-bind ="options:<strong>list1</strong>, selectedOptions:<strong> chosenNameList1 </strong>">'<'/select> <br>
+                                '<'/div> <br>
+                                '<'div data-bind="<strong>visible: chosenNameList1() == 'Visible' </strong>">'<'/div> <br>
+                                <br>
+                            </div>
+                            <div class="jsText">
+                                <strong>JavaScript:</strong> <br>
+                                '<'script type = "text/javascript"> <br>
+                                function viewModel() { <br>
+                                    var self = this; <br>
+                                    <br>
+                                    self.<strong>list1</strong> = ko.observableArray([ <br>
+                                        'Texto e Transparência', <br>
+                                        <strong>'Visible'</strong>, <br>
+                                        'Text', <br>
+                                        'CSS', <br>
+                                        'Style', <br>
+                                        'Attr' <br>
+                                    ]); <br>
+                                    self.<strong>chosenNameList1</strong>= ko.observableArray([]); <br>           
+                                '<'/script>
+                            </div>          
+                        </div>
+                        <div class="codeTextView" data-bind="visible: $root.chosenNameList1() == 'Text'"> 
+                            <div class="htmlText">
+                                <strong>html:</strong> <br>
+                                '<'div class="row"> <br>
+                                    '<'div class="col-xs-2 total">Total'<'/div> <br>
+                                    '<'div class="col-xs-2 total" data-bind="<strong>text:</strong> <strong>list()</strong>.length" > 0 '<'/div> <br>
+                                    '<'div class="col-xs-2 total text-center">'<'input type="checkbox"/> :'<'/div> <br>
+                                    '<'div class="col-xs-2 total" data-bind="<strong>text: notCheckedItens</strong>" > 0 '<'/div> <br>
+                                    '<'div class="col-xs-2 total text-center">'<'input type="checkbox" checked/> :'<'/div> <br>
+                                    '<'div class="col-xs-2 total" data-bind="<strong>text: checkedItens</strong>" > 0 '<'/div> <br>
+                                <br>
+                            </div>
+                            <div class="jsText">
+                                <strong>JavaScript:</strong> <br>
+                                '<'script type = "text/javascript"> <br>
+                                function viewModel() { <br>
+                                    var self = this; <br>
+                                    <br>
+                                    self.<strong>list</strong> = ko.observableArray([]); <br> 
+                                    <br>
+                                    self.<strong>checkedItens</strong> = ko.pureComputed(function() { <br>
+
+                                        var count = self.list().filter(function(item) { <br>
+                                            return item.check(); <br>
+                                        }).length; <br>
+                                        return count;<br>
+                                    }); <br>
+                                    <br>
+                                    self.<strong>notCheckedItens</strong> = ko.pureComputed(function() { <br>
+                    
+                                        var count = self.list().filter(function(item) { <br>
+                                            return !item.check(); <br>
+                                        }).length; <br>
+                                        return count; <br>
+                                    }) <br>
+                                } <br>        
+                                '<'/script>
+                            </div>          
+                        </div>
+                        <div class="codeTextView" data-bind="visible: $root.chosenNameList1() == 'CSS'"> 
+                            <div class="htmlText">
+                                <strong>html:</strong> <br>
+                                '<'div class="alert alert-warning" <br>
+                                        data-bind = "text: <strong>message</strong>, <br>
+                                                    <strong>css:</strong> {'alert-danger': (<strong>type</strong> == 'danger'), 'alert-info': <strong>type</strong> == 'info', 'alert-warning': <strong>type</strong> == 'warning'}, <br>
+                                                    visible:<strong>show</strong> "> <br>
+                                '<'/div><br>
+                                <br>
+                            </div>
+                            <div class="jsText">
+                                <strong>JavaScript:</strong> <br>
+                                '<'script type = "text/javascript"> <br>
+                                function viewModel() { <br>
+                                    var self = this; <br>
+                                    <br>
+                                    self.alert = ko.observable({ <br>
+                                        <strong>show:</strong> false, <br>
+                                        <strong>message:</strong> "Formulário pronto", <br>
+                                        <strong> type:</strong> "info" <br>
+                                     }); <br>
+                                        <br>
+                                    self.addItem = function() { <br>
+                                        if(self.itemDescription() == "") <br> 
+                                            { <br>
+                                                self.alert({ <br>
+                                                    <strong>show:</strong> true, <br>
+                                                    <strong>message:</strong> "Preencha a descrição do item", <br>
+                                                    <strong> type:</strong> "warning" <br>
+                                                }); <br>
+                                            }else { <br>
+                                                self.list.push({ <br>
+                                                    description: self.itemDescription(), <br>
+                                                    check: ko.observable(false) <br>
+                                                }); <br>
+                                            }<br>
+                                    self.alert({ <br>
+                                       <strong>show:</strong>  true, <br>
+                                        <strong>message:</strong> "Item incluido", <br>
+                                       <strong> type:</strong> "info" <br>
+                                        }); <br>
+                                    };<br>        
+                                '<'/script>
+                            </div>          
+                        </div>
+                        <div class="codeTextView" data-bind="visible: $root.chosenNameList2() == 'If'"> 
+                            <div class="htmlText">
+                                <strong>html:</strong> <br>
+                                '<'div class="codeTextView" data-bind="<strong>if:</strong> $root.chosenNameList1() == 'Texto e Transparência', <br>
+                                                             <strong>if:</strong> $root.chosenNameList3() == 'Campos de Formulário', <br>
+                                                              visible: $root.chosenNameList2() == 'If'"><br>
+                                '<'/div><br>
+                            </div>
+                            <div class="jsText">
+                                <strong>JavaScript:</strong> <br>
+                                '<'script type = "text/javascript"> <br>
+                                function viewModel() { <br>
+                                    var self = this; <br>
+                                    <br>
+                                    self.name1 = 'Texto e Transparência' <br>
+                                    self.name2 = 'Controle de Fluxo' <br>
+                                    self.name3 = 'Campos de Formulário' <br>
+                                    self.chosenNameList1 = ko.observableArray([self.name1]); <br>
+                                    self.chosenNameList2 = ko.observableArray([self.name2]); <br>
+                                    self.chosenNameList3 = ko.observableArray([self.name3]); <br>
+                                    };<br>        
+                                '<'/script>
+                            </div>          
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
+            <script type="text/javascript">
+            function viewModel() {
+                var self = this;
+    
+                //{description:"", checked: false}
+                self.list = ko.observableArray([]);
+
+                self.name1 = 'Texto e Transparência'
+                self.name2 = 'Controle de Fluxo'
+                self.name3 = 'Campos de Formulário'
+
+                self.list1 = ko.observableArray([
+                    'Texto e Transparência',
+                    'Visible',
+                    'Text',
+                    'CSS',
+                    'Style',
+                    'Attr'
+                ]);
+                self.chosenNameList1 = ko.observableArray([self.name1]);
+                
+                self.list2 = ko.observableArray([
+                    'Controle de Fluxo',
+                    'If',
+                    'Foreach',
+                    'Ifnot'
+                ]);
+                self.chosenNameList2 = ko.observableArray([self.name2])
+
+                self.list3 = ko.observableArray([
+                    'Campos de Formulário',
+                    'Click',
+                    'Value',
+                    'Enable',
+                    'Disable',
+                    'Checked',
+                    'Options'
+                ]);
+                self.chosenNameList3= ko.observableArray([self.name3]);
+                
+                self.itemDescription = ko.observable("");
+
+                self.alert = ko.observable({
+                    show: false,
+                    message: "Formulário pronto",
+                    type: "info"
+                });
+
+                self.addItem = function() {
+                    if(self.itemDescription() == "") 
+                    {
+                        self.alert({
+                            show: true,
+                            message: "Preencha a descrição do item",
+                            type: "warning"
+                        });
+                    }else {
+                        self.list.push({
+                            description: self.itemDescription(),
+                            check: ko.observable(false)
+                        });
+                        self.itemDescription("");
+                        self.alert({
+                            show: true,
+                            message: "Item incluido",
+                            type: "info"
+                        });
+                    }
+                };
+
+                self.checkedItens = ko.pureComputed(function() {
+
+                    var count = self.list().filter(function(item) {
+                        return item.check();
+                    }).length;
+
+                    return count;
+                })
+
+                self.notCheckedItens = ko.pureComputed(function() {
+
+                    var count = self.list().filter(function(item) {
+                        return !item.check();
+                    }).length;
+
+                    return count;
+                })
+            }
+
+            vm = new viewModel();
+            ko.applyBindings(vm);
+        </script>
+    </body>
+</html>
