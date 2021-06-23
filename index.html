@@ -45,11 +45,15 @@
                                 <div class="row">
                                     <div class="col-xs-12 total">Total</div>
                                     <div class="col-xs-12 total" data-bind="text: list().length"> 0 </div>
-                                                                                                    <!--chamando o observable declarado no script do JS-->
-                                    <div class="col-xs-12 total text-center"><input type="checkbox" data-bind="click: $root.isNotClickable() " /> :</div>
+
+                                    <!--chamando o observable declarado no script do JS-->
+                                    <div class="col-xs-12 total text-center"><input type="checkbox"
+                                            data-bind="click: $root.isNotClickable() " /> :</div>
                                     <div class="col-xs-12 total" data-bind="text: notCheckedItens"> 0 </div>
-                                                                                                    <!--declarando a função do observable acima direto dentro da binding -->
-                                    <div class="col-xs-12 total text-center"><input type="checkbox" data-bind="click: function(){ return false}" checked /> :</div>
+
+                                    <!--declarando a função do observable acima direto dentro da binding -->
+                                    <div class="col-xs-12 total text-center"><input type="checkbox"
+                                            data-bind="click: function(){ return false}" checked /> :</div>
                                     <div class="col-xs-12 total" data-bind="text: checkedItens"> 0 </div>
                                 </div>
                             </div>
@@ -58,9 +62,11 @@
                         <div class="col-xs-6">
                             <div class="row">
                                 <div class="col-xs-12"><label>Descrição do item</label></div>
-                                <div class="col-xs-12"><input type="text" class="form-control input-sm" data-bind="value: itemDescription" /></div>
+                                <div class="col-xs-12"><input type="text" class="form-control input-sm"
+                                        data-bind="value: itemDescription" /></div>
                                 <div class="col-xs-12"><br></div>
-                                <div class="col-xs-12"><button class="btn btn-primary btn-block" data-bind="click: $root.addItem">Incluir item</button></div>
+                                <div class="col-xs-12"><button class="btn btn-primary btn-block"
+                                        data-bind="click: $root.addItem">Incluir item</button></div>
                             </div>
                         </div>
                     </div>
@@ -77,16 +83,18 @@
                 <div><select data-bind="options: $root.list3(), selectedOptions: $root.chosenNameList3"></select></div>
             </div>
 
-            <div class="options"> <!--mostra trechos do código onde a binding selecionanda foi usada-->
+            <div class="options">
+                <!--mostra trechos do código onde a binding selecionanda foi usada-->
 
                 <div data-bind="if: $root.chosenNameList1() == 'Visible'">
                     <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
                     <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
                     <div>
-                         <div class="htmlText">
+                        <div class="htmlText">
                             '<'div class="col-xs-12" <font color="#9faa04"> data-bind =</font>"with: alert"> <br>
                                 &nbsp &nbsp &nbsp &nbsp
-                                '<'div class="alert alert-warning" <font color="#9faa04"> data-bind =</font> "text:<font color="#eb0000">message</font>, <br>
+                                '<'div class="alert alert-warning" <font color="#9faa04"> data-bind =</font> "text:<font
+                                        color="#eb0000">message</font>, <br>
                                     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
                                     css: {'alert-danger': (<font color="#7d0081">type</font>
                                     <font color="#f88400"> == </font> 'danger'), <br>
@@ -100,10 +108,10 @@
                                     <strong>visible:</strong>
                                     <font color="#eb0000">show</font>"> <br>
                                     &nbsp &nbsp &nbsp &nbsp
-                                < /div> <br>
-                                &nbsp &nbsp
-                            '<'/div>
-                            <br>
+                                    < /div> <br>
+                                        &nbsp &nbsp
+                                        '<' /div>
+                                            <br>
                         </div>
                         <div class="jsText">
                             <strong>JavaScript:</strong> <br>
@@ -164,560 +172,637 @@
                                 }; <br>
                                 &nbsp &nbsp
                                 };<br>
-                            '<'/script>
+                                '<' /script>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div data-bind=" if: $root.chosenNameList1() == 'Text'">
-                <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
-                <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
-                <div>
-                    <div class="htmlText">
-                        <strong>html:</strong> <br>
-                        '<'div class="row"> <br>
-                            '<'div class="col-xs-12 total">Total'<' /div> <br>
-                                    '<'div class="col-xs-12 total" <font color="#9faa04"> data-bind =</font>"<strong>text:</strong>
-                                        <font color="#7d0081">list()</font>.length" > 0 '<' /div> <br>
-                                            '<'div class="col-xs-12 total text-center">'
-                                                <'input type="checkbox" /> :'<' /div> <br>
-                                                    '<'div class="col-xs-12 total" <font color="#9faa04"> data-bind =</font>"<strong>text: </strong>
-                                                        <font color="#7d0081">notCheckedItens</font>" > 0 '<' /div> <br>
-                                                            '<'div class="col-xs-12 total text-center">'
-                                                                <'input type="checkbox" checked /> :'<' /div> <br>
-                                                                    '<'div class="col-xs-12 total" <font color="#9faa04"> data-bind =</font>"<strong>text: </strong>
-                                                                        <font color="#7d0081">checkedItens</font>" > 0 '<' /div> <br>
-                                                                            <br>
-                    </div>
-                    <div class="jsText">
-                        <strong>JavaScript:</strong> <br>
-                        '<'script type="text/javascript"> <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            function viewModel() { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            var self = this; <br>
-                            <br>
-                            <font color="#7d0081">self.list()</font> = ko.observableArray([]); <br>
-                            <br>
-                            <font color="#7d0081">self.checkedItens</font> = ko.pureComputed(function() { <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            var count = self.list().filter(function(item) { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            return item.check(); <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            }).length; <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            return count;<br>
-                            &nbsp &nbsp
-                            }); <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            <br>
-                            <font color="#7d0081">self.notCheckedItens</font> = ko.pureComputed(function() { <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            var count = self.list().filter(function(item) { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            return !item.check(); <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            }).length; <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            return count; <br>
-                            &nbsp &nbsp
-                            }) <br>
-                            } <br>
-                            '<' /script>
-                    </div>
-                </div>
-            </div>
-
-            <div data-bind=" if: $root.chosenNameList1() == 'CSS'">
-                <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
-                <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
-                <div class="bodyCss">
-                    <div class="htmlText">
-                        <strong>html:</strong> <br>
-                        '<'div class="alert alert-warning" <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            <font color="#9faa04"> data-bind =</font> "text: <font color="#eb0000">message</font>, <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            <strong>css:</strong> {'alert-danger': (<font color="#7d0081">type</font> == 'danger'), <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            'alert-info': <font color="#7d0081">type</font> == 'info', <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            'alert-warning': <font color="#7d0081">type</font> == 'warning'}, <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            visible: <font color="#eb0000">show</font> "> <br>
-                            '<' /div><br>
-                                <br>
-                    </div>
-                    <div class="jsText">
-                        <strong>JavaScript:</strong> <br>
-                        '<'script type="text/javascript"> <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            function viewModel() { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            var self = this; <br>
-                            <br>
-                            self.itemDescription = ko.observable(""); <br>
-                            <br>
-                            self.alert = ko.observable({ <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            <font color="#eb0000">show</font>: false, <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            <font color="#eb0000">message</font>: "Formulário pronto", <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            <font color="#7d0081">type</font>: "info" <br>
-                            }); <br>
-                            <br>
-                            self.addItem = function() { <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            if(self.itemDescription() == "") <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            self.alert({ <font color="#eb0000">show</font>: true, <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            <font color="#eb0000">message</font>: "Preencha a descrição do item", <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            <font color="#7d0081">type</font>: "warning" <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            }); <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            }else { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            self.list.push({ <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            description: self.itemDescription(), <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            check: ko.observable(false) <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            }); <br>
-                            <br>
-                            self.itemDescription(""); <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            self.alert({ <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            <font color="#eb0000">show</font>: true, <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            <font color="#eb0000">message</font>: "Item incluido", <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            <font color="#7d0081">type</font>: "info" <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            }); <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            } <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            }; <br>
-                            &nbsp &nbsp
-                            };<br>
-                            '<' /script>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div data-bind=" if: $root.chosenNameList2() == 'If'">
-                <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
-                <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
-                <div class="bodyIf">
-                    <div class="htmlText">
-                        <strong>html:</strong> <br>
-                        '<'div><br>
-                            &nbsp &nbsp &nbsp
-                            '<'select <font color="#9faa04"> data-bind =</font>"options:<font color="#7d0081">$root.list2()</font>,
-                                selectedOptions: <font color="#eb0000">$root.chosenNameList2</font>">'<' /select> <br>
-                                    '<' /div> <br>
-                                        '<'div <font color="#9faa04"> data-bind =</font>"<strong>if: </strong>
-                                            <font color="#eb0000">$root.chosenNameList2()</font>
-                                            == <font color="#2c8a00">'If'</font>">'<' /div> <br>
-                                                '<'div <font color="#9faa04"> data-bind =</font>"value: $root.chosenNameList1('Texto e Transparência')">'<' /div> <br>
-                                                        '<'div <font color="#9faa04"> data-bind =</font>"value: $root.chosenNameList3('Campos de Formulário')">'<' /div> <br>
-                                                                <br>
-                    </div>
-                    <div class="jsText">
-                        <strong>JavaScript:</strong> <br>
-                        '<'script type="text/javascript"> <br>
-                            &nbsp &nbsp &nbsp
-                            function viewModel() { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            var self = this; <br>
-                            <br>
-                            <font color="#7d0081">self.list2</font> = ko.observableArray([ <br>
-                            &nbsp &nbsp &nbsp
-                            'Controle de Fluxo', <br>
-                            &nbsp &nbsp &nbsp
-                            <font color="#2c8a00">'If'</font>, <br>
-                            &nbsp &nbsp &nbsp
-                            'Foreach', <br>
-                            &nbsp &nbsp &nbsp
-                            'Ifnot', <br>
-                            ]); <br>
-                            <font color="#eb0000">self.chosenNameList2</font> = ko.observable<font color="#f88400">()</font>; <br>
-                            }; <br>
-                            '<' /script>
-                    </div>
-                </div>
-            </div>
-
-            <div data-bind=" if: $root.chosenNameList2() == 'Foreach'">
-                <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
-                <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
-                <div>
-                    <div class="htmlText">
-                        <strong>html:</strong> <br>
-                        '<'ul class="list-group" <font color="#9faa04">data-bind=</font>"<strong>foreach:</strong>
-                            <font color="#7d0081"> $root.list</font>"> <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            '<'li class="list-group-item" <font color="#9faa04">data-bind =</font>"css: {'item-checked': $data.check }"> <br>
-                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                                '<'input type="checkbox" <font color="#9faa04">data-bind =</font> "checked: $data.check "/> <br>
-                                    &nbsp &nbsp &nbsp &nbsp
-                                    '<' /li> <br>
-                                        '<' /ul> <br>
-                                            <br>
-                    </div>
-                    <div class="jsText">
-                        <strong>JavaScript:</strong> <br>
-                        '<'script type="text/javascript"> <br>
-                            function viewModel() { <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            var self = this; <br>
-                            &nbsp &nbsp
-                            <font color="#7d0081"> self.list</font> = ko.observableArray([]); <br>
-                            } <br>
-                            '<' /script>
-                    </div>
-                </div>
-            </div>
-
-            <div data-bind=" ifnot: $root.chosenNameList2() != 'Ifnot'">
-                <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
-                <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
-                <div class="bodyIfNot">
-                    <div class="htmlText">
-                        <strong>html:</strong> <br>
-                        '<'div><br>
-                            &nbsp &nbsp &nbsp
-                            '<'select <font color="#9faa04"> data-bind =</font>"options:<font color="#7d0081">$root.list2()</font>,
-                                selectedOptions: <font color="#eb0000">$root.chosenNameList2</font>">'<' /select> <br>
-                                    '<' /div> <br>
-                                        '<'div <font color="#9faa04"> data-bind =</font>"<strong>ifnot: </strong>
-                                            <font color="#eb0000">$root.chosenNameList2()</font>
-                                            <font color="#f88400"> != </font>
-                                            <font color="#2c8a00">'Ifnot'</font>">'<' /div> <br>
-                                                '<'div <font color="#9faa04"> data-bind =</font>"value: $root.chosenNameList1('Texto e Transparência')">'<' /div> <br>
-                                                        '<'div <font color="#9faa04"> data-bind =</font>"value: $root.chosenNameList3('Campos de Formulário')">'<' /div> <br>
-                                                                <br>
-                    </div>
-                    <div class="jsText">
-                        <strong>JavaScript:</strong> <br>
-                        '<'script type="text/javascript"> <br>
-                            &nbsp &nbsp &nbsp
-                            function viewModel() { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            var self = this; <br>
-                            <br>
-                            <font color="#7d0081">self.list2</font> = ko.observableArray([ <br>
-                            &nbsp &nbsp &nbsp
-                            'Controle de Fluxo', <br>
-                            &nbsp &nbsp &nbsp
-                            'If', <br>
-                            &nbsp &nbsp &nbsp
-                            'Foreach', <br>
-                            &nbsp &nbsp &nbsp
-                            <font color="#2c8a00">'Ifnot'</font>, <br>
-                            ]); <br>
-                            <font color="#eb0000">self.chosenNameList2</font> = ko.observable<font color="#f88400">()</font>; <br>
-                            }; <br>
-                            '<' /script>
-                    </div>
-                </div>
-            </div>
-
-            <div data-bind=" if: $root.chosenNameList3() == 'Click'">
-                <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
-                <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
-                <div class="bodyClick">
-                    <div class="htmlText">
+                <div data-bind=" if: $root.chosenNameList1() == 'Text'">
+                    <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
+                    <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
+                    <div>
+                        <div class="htmlText">
                             <strong>html:</strong> <br>
-                            '<'div class="col-xs-12 total">Total'<'/div> <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            '<'div class="col-xs-12 total" <font color="#9faa04">data-bind=</font>"text: list().length"> 0 '<'/div> <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
-                                                                            <font color="#5f6569"><--<font color="#064fbd">chamando o observable declarado no script do JS</font>--></font><br>
-                                                                                                    &nbsp &nbsp &nbsp &nbsp
-                            '<'div class="col-xs-12 total text-center">'<'input type="checkbox" <font color="#9faa04">data-bind=</font>"<strong>click:</strong> <font color="#064fbd">$root.isNotClickable()</font> " /> :'<'/div> <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            '<'div class="col-xs-12 total" <font color="#9faa04">data-bind=</font>"text: notCheckedItens"> 0 '<'/div> <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
-                                                                        <font color="#5f6569"><--<font color="#064fbd">declarando a função do observable acima direto dentro da binding</font>--></font> <br>
-                                                                        &nbsp &nbsp &nbsp &nbsp
-                            '<'div class="col-xs-12 total text-center">'<'input type="checkbox" <font color="#9faa04">data-bind=</font>"<strong>click:</strong> <font color="#064fbd">function(){ return <font color="Red">false</font>}</font>" checked /> :'<'/div> <br>
-                            '<'div class="col-xs-12 total" <font color="#9faa04">data-bind=</font>"text: checkedItens"> 0 '<'/div> <br>
+                            '<'div class="row"> <br>
+                                '<'div class="col-xs-12 total">Total'<' /div> <br>
+                                        '<'div class="col-xs-12 total" <font color="#9faa04"> data-bind =</font>
+                                            "<strong>text:</strong>
+                                            <font color="#7d0081">list()</font>.length" > 0 '<' /div> <br>
+                                                '<'div class="col-xs-12 total text-center">'
+                                                    <'input type="checkbox" /> :'<' /div> <br>
+                                                        '<'div class="col-xs-12 total" <font color="#9faa04"> data-bind
+                                                            =
+                                                            </font>"<strong>text: </strong>
+                                                            <font color="#7d0081">notCheckedItens</font>" > 0 '<' /div>
+                                                                <br>
+                                                                '<'div class="col-xs-12 total text-center">'
+                                                                    <'input type="checkbox" checked /> :'<' /div> <br>
+                                                                        '<'div class="col-xs-12 total" <font
+                                                                            color="#9faa04"> data-bind =</font>
+                                                                            "<strong>text: </strong>
+                                                                            <font color="#7d0081">checkedItens</font>" >
+                                                                            0 '
+                                                                            <' /div> <br>
+                                                                                <br>
+                        </div>
+                        <div class="jsText">
+                            <strong>JavaScript:</strong> <br>
+                            '<'script type="text/javascript"> <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                function viewModel() { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                var self = this; <br>
+                                <br>
+                                <font color="#7d0081">self.list()</font> = ko.observableArray([]); <br>
+                                <br>
+                                <font color="#7d0081">self.checkedItens</font> = ko.pureComputed(function() { <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                var count = self.list().filter(function(item) { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                return item.check(); <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                }).length; <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                return count;<br>
+                                &nbsp &nbsp
+                                }); <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                <br>
+                                <font color="#7d0081">self.notCheckedItens</font> = ko.pureComputed(function() { <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                var count = self.list().filter(function(item) { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                return !item.check(); <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                }).length; <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                return count; <br>
+                                &nbsp &nbsp
+                                }) <br>
+                                } <br>
+                                '<' /script>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind=" if: $root.chosenNameList1() == 'CSS'">
+                    <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
+                    <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
+                    <div class="bodyCss">
+                        <div class="htmlText">
+                            <strong>html:</strong> <br>
+                            '<'div class="alert alert-warning" <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                <font color="#9faa04"> data-bind =</font> "text: <font color="#eb0000">message</font>,
+                                <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                &nbsp
+                                <strong>css:</strong> {'alert-danger': (<font color="#7d0081">type</font> == 'danger'),
+                                <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                &nbsp
+                                'alert-info': <font color="#7d0081">type</font> == 'info', <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                &nbsp
+                                'alert-warning': <font color="#7d0081">type</font> == 'warning'}, <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                &nbsp
+                                visible: <font color="#eb0000">show</font> "> <br>
+                                '<' /div><br>
+                                    <br>
+                        </div>
+                        <div class="jsText">
+                            <strong>JavaScript:</strong> <br>
+                            '<'script type="text/javascript"> <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                function viewModel() { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                var self = this; <br>
+                                <br>
+                                self.itemDescription = ko.observable(""); <br>
+                                <br>
+                                self.alert = ko.observable({ <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                <font color="#eb0000">show</font>: false, <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                <font color="#eb0000">message</font>: "Formulário pronto", <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                <font color="#7d0081">type</font>: "info" <br>
+                                }); <br>
+                                <br>
+                                self.addItem = function() { <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                if(self.itemDescription() == "") <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                self.alert({ <font color="#eb0000">show</font>: true, <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                <font color="#eb0000">message</font>: "Preencha a descrição do item", <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                <font color="#7d0081">type</font>: "warning" <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                }); <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                }else { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                self.list.push({ <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                description: self.itemDescription(), <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                check: ko.observable(false) <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                }); <br>
+                                <br>
+                                self.itemDescription(""); <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                self.alert({ <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                <font color="#eb0000">show</font>: true, <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                <font color="#eb0000">message</font>: "Item incluido", <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                <font color="#7d0081">type</font>: "info" <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                }); <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                } <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                }; <br>
+                                &nbsp &nbsp
+                                };<br>
+                                '<' /script>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind=" if: $root.chosenNameList2() == 'If'">
+                    <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
+                    <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
+                    <div class="bodyIf">
+                        <div class="htmlText">
+                            <strong>html:</strong> <br>
+                            '<'div><br>
+                                &nbsp &nbsp &nbsp
+                                '<'select <font color="#9faa04"> data-bind =</font>"options:<font color="#7d0081">
+                                        $root.list2()</font>,
+                                    selectedOptions: <font color="#eb0000">$root.chosenNameList2</font>">'<' /select>
+                                        <br>
+                                        '<' /div> <br>
+                                            '<'div <font color="#9faa04"> data-bind =</font>"<strong>if: </strong>
+                                                <font color="#eb0000">$root.chosenNameList2()</font>
+                                                == <font color="#2c8a00">'If'</font>">'<' /div> <br>
+                                                    '<'div <font color="#9faa04"> data-bind =</font>"value:
+                                                        $root.chosenNameList1('Texto e Transparência')">'<' /div> <br>
+                                                            '<'div <font color="#9faa04"> data-bind =</font>"value:
+                                                                $root.chosenNameList3('Campos de Formulário')">'<' /div>
+                                                                    <br>
+                                                                    <br>
+                        </div>
+                        <div class="jsText">
+                            <strong>JavaScript:</strong> <br>
+                            '<'script type="text/javascript"> <br>
+                                &nbsp &nbsp &nbsp
+                                function viewModel() { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                var self = this; <br>
+                                <br>
+                                <font color="#7d0081">self.list2</font> = ko.observableArray([ <br>
+                                &nbsp &nbsp &nbsp
+                                'Controle de Fluxo', <br>
+                                &nbsp &nbsp &nbsp
+                                <font color="#2c8a00">'If'</font>, <br>
+                                &nbsp &nbsp &nbsp
+                                'Foreach', <br>
+                                &nbsp &nbsp &nbsp
+                                'Ifnot', <br>
+                                ]); <br>
+                                <font color="#eb0000">self.chosenNameList2</font> = ko.observable<font color="#f88400">
+                                    ()
+                                </font>; <br>
+                                }; <br>
+                                '<' /script>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind=" if: $root.chosenNameList2() == 'Foreach'">
+                    <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
+                    <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
+                    <div>
+                        <div class="htmlText">
+                            <strong>html:</strong> <br>
+                            '<'ul class="list-group" <font color="#9faa04">data-bind=</font>"<strong>foreach:</strong>
+                                <font color="#7d0081"> $root.list</font>"> <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                '<'li class="list-group-item" <font color="#9faa04">data-bind =</font>"css:
+                                    {'item-checked':
+                                    $data.check }"> <br>
+                                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                    '<'input type="checkbox" <font color="#9faa04">data-bind =</font> "checked:
+                                        $data.check
+                                        "/> <br>
+                                        &nbsp &nbsp &nbsp &nbsp
+                                        '<' /li> <br>
+                                            '<' /ul> <br>
+                                                <br>
+                        </div>
+                        <div class="jsText">
+                            <strong>JavaScript:</strong> <br>
+                            '<'script type="text/javascript"> <br>
+                                function viewModel() { <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                var self = this; <br>
+                                &nbsp &nbsp
+                                <font color="#7d0081"> self.list</font> = ko.observableArray([]); <br>
+                                } <br>
+                                '<' /script>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind=" ifnot: $root.chosenNameList2() != 'Ifnot'">
+                    <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
+                    <div data-bind="value: $root.chosenNameList3('Campos de Formulário')"></div>
+                    <div class="bodyIfNot">
+                        <div class="htmlText">
+                            <strong>html:</strong> <br>
+                            '<'div><br>
+                                &nbsp &nbsp &nbsp
+                                '<'select <font color="#9faa04"> data-bind =</font>"options:<font color="#7d0081">
+                                        $root.list2()</font>,
+                                    selectedOptions: <font color="#eb0000">$root.chosenNameList2</font>">'<' /select>
+                                        <br>
+                                        '<' /div> <br>
+                                            '<'div <font color="#9faa04"> data-bind =</font>"<strong>ifnot: </strong>
+                                                <font color="#eb0000">$root.chosenNameList2()</font>
+                                                <font color="#f88400"> != </font>
+                                                <font color="#2c8a00">'Ifnot'</font>">'<' /div> <br>
+                                                    '<'div <font color="#9faa04"> data-bind =</font>"value:
+                                                        $root.chosenNameList1('Texto e Transparência')">'<' /div> <br>
+                                                            '<'div <font color="#9faa04"> data-bind =</font>"value:
+                                                                $root.chosenNameList3('Campos de Formulário')">'<' /div>
+                                                                    <br>
+                                                                    <br>
+                        </div>
+                        <div class="jsText">
+                            <strong>JavaScript:</strong> <br>
+                            '<'script type="text/javascript"> <br>
+                                &nbsp &nbsp &nbsp
+                                function viewModel() { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                var self = this; <br>
+                                <br>
+                                <font color="#7d0081">self.list2</font> = ko.observableArray([ <br>
+                                &nbsp &nbsp &nbsp
+                                'Controle de Fluxo', <br>
+                                &nbsp &nbsp &nbsp
+                                'If', <br>
+                                &nbsp &nbsp &nbsp
+                                'Foreach', <br>
+                                &nbsp &nbsp &nbsp
+                                <font color="#2c8a00">'Ifnot'</font>, <br>
+                                ]); <br>
+                                <font color="#eb0000">self.chosenNameList2</font> = ko.observable<font color="#f88400">
+                                    ()
+                                </font>; <br>
+                                }; <br>
+                                '<' /script>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind=" if: $root.chosenNameList3() == 'Click'">
+                    <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
+                    <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
+                    <div class="bodyClick">
+                        <div class="htmlText">
+                            <strong>html:</strong> <br>
+                            '<'div class="col-xs-12 total">Total'<' /div> <br>
+                                    &nbsp &nbsp &nbsp &nbsp
+                                    '<'div class="col-xs-12 total" <font color="#9faa04">data-bind=</font>"text:
+                                        list().length"> 0 '<' /div> <br>
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                            &nbsp
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                            &nbsp
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                            &nbsp
+                                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                            <font color="#5f6569">
+                                                <--<font color="#064fbd">chamando o observable declarado no script do JS
+                                            </font>--></font><br>
+                                            &nbsp &nbsp &nbsp &nbsp
+                                            '<'div class="col-xs-12 total text-center">'<'input type="checkbox" <font
+                                                    color="#9faa04">data-bind=</font>"<strong>click:</strong>
+                                                    <font color="#064fbd">$root.isNotClickable()</font> " /> :'<' /div>
+                                                        <br>
+                                                        &nbsp &nbsp &nbsp &nbsp
+                                                        '<'div class="col-xs-12 total" <font color="#9faa04">data-bind=
+                                                            </font>"text: notCheckedItens"> 0 '<' /div> <br>
+                                                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                                &nbsp
+                                                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                                &nbsp
+                                                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                                &nbsp
+                                                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                                                <font color="#5f6569">
+                                                                    <--<font color="#064fbd">declarando a função do
+                                                                        observable acima direto dentro da binding
+                                                                </font>--></font> <br>
+                                                                &nbsp &nbsp &nbsp &nbsp
+                                                                '<'div class="col-xs-12 total text-center">'<'input
+                                                                        type="checkbox" <font color="#9faa04">data-bind=
+                                                                        </font>"<strong>click:</strong>
+                                                                        <font color="#064fbd">function(){ return <font
+                                                                                color="Red">false</font>}</font>"
+                                                                        checked />
+                                                                        :'<' /div> <br>
+                                                                            '<'div class="col-xs-12 total" <font
+                                                                                color="#9faa04">data-bind=</font>"text:
+                                                                                checkedItens"> 0 '<' /div> <br>
                         </div>
                     </div>
                     <div class="jsText">
                         <strong>JavaScript:</strong> <br>
+                        '<'script type="text/javascript"> <br>
+                            &nbsp &nbsp &nbsp &nbsp
+                            <font color="#064fbd">self.isNotClickable</font> = ko.observable(<font color="#064fbd">
+                                function(){ return <font color="Red">false</font>}</font>); <br>
+                            '<' /script>
+                    </div>
+                </div>
+
+                <div data-bind=" if: $root.chosenNameList3() == 'Value'">
+                    <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
+                    <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
+                    <div class="bodyValue">
+                        <div class="htmlText">
+                            <strong>html:</strong> <br>
+                            '<'div><br>
+                                &nbsp &nbsp &nbsp
+                                '<'select <font color="#9faa04"> data-bind =</font>"options:<font color="#7d0081">
+                                        $root.list3()</font>,
+                                    selectedOptions: <font color="#eb0000">$root.chosenNameList3</font>">'<' /select>
+                                        <br>
+                                        '<' /div> <br>
+                                            '<'div <font color="#9faa04"> data-bind =</font>"if: <font color="#eb0000">
+                                                    $root.chosenNameList3()</font>
+                                                <font color="#f88400"> == </font>
+                                                <font color="#2c8a00">'Value'</font>">'<' /div> <br>
+                                                    '<'div <font color="#9faa04"> data-bind =</font>
+                                                        "<strong>value:</strong>
+                                                        $root.chosenNameList1('Texto e Transparência')">'<' /div> <br>
+                                                            '<'div <font color="#9faa04"> data-bind =</font>
+                                                                "<strong>value:</strong> $root.chosenNameList2('Controle
+                                                                de
+                                                                Fluxo')">'<' /div> <br>
+                                                                    <br>
+                        </div>
+                        <div class="jsText">
+                            <strong>JavaScript:</strong> <br>
                             '<'script type="text/javascript"> <br>
-                                &nbsp &nbsp  &nbsp &nbsp
-                                <font color="#064fbd">self.isNotClickable</font> = ko.observable(<font color="#064fbd">function(){ return <font color="Red">false</font>}</font>); <br>
-                            '<' /script>
+                                &nbsp &nbsp &nbsp
+                                function viewModel() { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                var self = this; <br>
+                                <br>
+                                <font color="#7d0081">self.list3</font> = ko.observableArray([ <br>
+                                &nbsp &nbsp &nbsp
+                                'Campos de Formulário', <br>
+                                &nbsp &nbsp &nbsp
+                                'Click', <br>
+                                &nbsp &nbsp &nbsp
+                                <font color="#2c8a00">'Value'</font>, <br>
+                                &nbsp &nbsp &nbsp
+                                'Enable', <br>
+                                &nbsp &nbsp &nbsp
+                                'Disable', <br>
+                                &nbsp &nbsp &nbsp
+                                'Checked', <br>
+                                &nbsp &nbsp &nbsp
+                                'Options', <br>
+                                ]); <br>
+                                <font color="#eb0000">self.chosenNameList3</font> = ko.observable<font color="#f88400">
+                                    ()
+                                </font>; <br>
+                                }; <br>
+                                '<' /script>
+                        </div>
                     </div>
-            </div>
+                </div>
 
-            <div data-bind=" if: $root.chosenNameList3() == 'Value'">
-                <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
-                <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
-                <div class="bodyValue">
-                    <div class="htmlText">
-                        <strong>html:</strong> <br>
-                        '<'div><br>
-                            &nbsp &nbsp &nbsp
-                            '<'select <font color="#9faa04"> data-bind =</font>"options:<font color="#7d0081">$root.list3()</font>,
-                                selectedOptions: <font color="#eb0000">$root.chosenNameList3</font>">'<' /select> <br>
-                                    '<' /div> <br>
-                                        '<'div <font color="#9faa04"> data-bind =</font>"if: <font color="#eb0000">$root.chosenNameList3()</font>
-                                            <font color="#f88400"> == </font>
-                                            <font color="#2c8a00">'Value'</font>">'<' /div> <br>
-                                                '<'div <font color="#9faa04"> data-bind =</font>"<strong>value:</strong> $root.chosenNameList1('Texto e Transparência')">'<' /div> <br>
-                                                        '<'div <font color="#9faa04"> data-bind =</font>"<strong>value:</strong> $root.chosenNameList2('Controle de Fluxo')">'<' /div> <br>
-                                                                <br>
+                <div data-bind=" if: $root.chosenNameList3() == 'Checked'">
+                    <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
+                    <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
+                    <div>
+                        <div class="htmlText">
+                            <strong>html:</strong> <br>
+                            '<'li class="list-group-item" <font color="#9faa04">data-bind =</font>"css: {'item-checked':
+                                $data.check }"> <br>
+                                '<'input type="checkbox" <font color="#9faa04">data-bind =</font>
+                                    "<strong>checked:</strong>
+                                    $data.check "/> <br>
+                                    '<' /li> <br>
+                                        <br>
+                                        '<'div class="col-xs-12 total" <font color="#9faa04">data-bind =</font>"text:
+                                            <font color="#064fbd"> notCheckedItens</font>" > 0 '<' /div> <br>
+                                                '<'div class="col-xs-12 total text-center">'
+                                                    <'input type="checkbox" checked /> :'<' /div> <br>
+                                                        '<'div class="col-xs-12 total" <font color="#9faa04">data-bind =
+                                                            </font>"text:<font color="#064fbd"> checkedItens</font>" > 0
+                                                            '<' /div> <br>
+                        </div>
+                        <div class="jsText">
+                            <strong>JavaScript:</strong> <br>
+                            '<'script type="text/javascript"> <br>
+                                function viewModel() { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                var self = this; <br>
+                                <br>
+                                <font color="#064fbd"> self.checkedItens </font> = ko.pureComputed(function() { <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                var count = self.list().filter(function(item) { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                return item.check(); <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                }).length; <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                return count; <br>
+                                &nbsp &nbsp
+                                }) <br>
+                                <br>
+                                <font color="#064fbd">self.notCheckedItens </font> = ko.pureComputed(function() { <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                var count = self.list().filter(function(item) { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                return !item.check(); <br>
+                                &nbsp &nbsp &nbsp &nbsp
+                                }).length; <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                return count; <br>
+                                &nbsp &nbsp
+                                }) <br>
+                                } <br>
+                                '<' /script>
+                        </div>
                     </div>
-                    <div class="jsText">
-                        <strong>JavaScript:</strong> <br>
-                        '<'script type="text/javascript"> <br>
-                            &nbsp &nbsp &nbsp
-                            function viewModel() { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            var self = this; <br>
-                            <br>
-                            <font color="#7d0081">self.list3</font> = ko.observableArray([ <br>
-                            &nbsp &nbsp &nbsp
-                            'Campos de Formulário', <br>
-                            &nbsp &nbsp &nbsp
-                            'Click', <br>
-                            &nbsp &nbsp &nbsp
-                            <font color="#2c8a00">'Value'</font>, <br>
-                            &nbsp &nbsp &nbsp
-                            'Enable', <br>
-                            &nbsp &nbsp &nbsp
-                            'Disable', <br>
-                            &nbsp &nbsp &nbsp
-                            'Checked', <br>
-                            &nbsp &nbsp &nbsp
-                            'Options', <br>
-                            ]); <br>
-                            <font color="#eb0000">self.chosenNameList3</font> = ko.observable<font color="#f88400">()</font>; <br>
-                            }; <br>
-                            '<' /script>
+                </div>
+
+                <div data-bind=" if: $root.chosenNameList3() == 'Options'">
+                    <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
+                    <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
+                    <div class="bodyIf">
+                        <div class="htmlText">
+                            <strong>html:</strong> <br>
+                            '<'div><br>
+                                &nbsp &nbsp &nbsp
+                                '<'select <font color="#9faa04"> data-bind =</font>"<strong>options:</strong>
+                                    <font color="#7d0081">$root.list3()</font>,
+                                    <strong>selectedOptions:</strong>
+                                    <font color="#eb0000">$root.chosenNameList3</font>">'<' /select> <br>
+                                        '<' /div> <br>
+                                            '<'div <font color="#9faa04"> data-bind =</font>"if: <font color="#eb0000">
+                                                    $root.chosenNameList3()</font>
+                                                <font color="#f88400"> == </font>
+                                                <font color="#2c8a00">'Options'</font>">'<' /div> <br>
+                                                    '<'div <font color="#9faa04"> data-bind =</font>"value:
+                                                        $root.chosenNameList1('Texto e Transparência')">'<' /div> <br>
+                                                            '<'div <font color="#9faa04"> data-bind =</font>"value:
+                                                                $root.chosenNameList2('Controle de Fluxo')">'<' /div>
+                                                                    <br>
+                                                                    <br>
+                        </div>
+                        <div class="jsText">
+                            <strong>JavaScript:</strong> <br>
+                            '<'script type="text/javascript"> <br>
+                                &nbsp &nbsp &nbsp
+                                function viewModel() { <br>
+                                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                                var self = this; <br>
+                                <br>
+                                <font color="#7d0081">self.list3</font> = ko.observableArray([ <br>
+                                &nbsp &nbsp &nbsp
+                                'Campos de Formulário', <br>
+                                &nbsp &nbsp &nbsp
+                                'Click', <br>
+                                &nbsp &nbsp &nbsp
+                                'Value', <br>
+                                &nbsp &nbsp &nbsp
+                                'Enable', <br>
+                                &nbsp &nbsp &nbsp
+                                'Disable', <br>
+                                &nbsp &nbsp &nbsp
+                                'Checked', <br>
+                                &nbsp &nbsp &nbsp
+                                <font color="#2c8a00">'Options'</font>, <br>
+                                ]); <br>
+                                <font color="#eb0000">self.chosenNameList3</font> = ko.observable<font color="#f88400">
+                                    ()
+                                </font>; <br>
+                                }; <br>
+                                '<' /script>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
-
-            <div data-bind=" if: $root.chosenNameList3() == 'Checked'">
-                <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
-                <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
-                <div>
-                    <div class="htmlText">
-                        <strong>html:</strong> <br>
-                        '<'li class="list-group-item" <font color="#9faa04">data-bind =</font>"css: {'item-checked': $data.check }"> <br>
-                            '<'input type="checkbox" <font color="#9faa04">data-bind =</font> "<strong>checked:</strong> $data.check "/> <br>
-                                '<' /li> <br>
-                                    <br>
-                                    '<'div class="col-xs-12 total" <font color="#9faa04">data-bind =</font>"text:<font color="#064fbd"> notCheckedItens</font>" > 0 '<' /div> <br>
-                                            '<'div class="col-xs-12 total text-center">'
-                                                <'input type="checkbox" checked /> :'<' /div> <br>
-                                                    '<'div class="col-xs-12 total" <font color="#9faa04">data-bind =</font>"text:<font color="#064fbd"> checkedItens</font>" > 0 '<' /div> <br>
-                    </div>
-                    <div class="jsText">
-                        <strong>JavaScript:</strong> <br>
-                        '<'script type="text/javascript"> <br>
-                            function viewModel() { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            var self = this; <br>
-                            <br>
-                            <font color="#064fbd"> self.checkedItens </font> = ko.pureComputed(function() { <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            var count = self.list().filter(function(item) { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            return item.check(); <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            }).length; <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            return count; <br>
-                            &nbsp &nbsp
-                            }) <br>
-                            <br>
-                            <font color="#064fbd">self.notCheckedItens </font> = ko.pureComputed(function() { <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            var count = self.list().filter(function(item) { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            return !item.check(); <br>
-                            &nbsp &nbsp &nbsp &nbsp
-                            }).length; <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            return count; <br>
-                            &nbsp &nbsp
-                            }) <br>
-                            } <br>
-                            '<' /script>
-                    </div>
-                </div>
-            </div>
-
-            <div data-bind=" if: $root.chosenNameList3() == 'Options'">
-                <div data-bind="value: $root.chosenNameList1('Texto e Transparência')"></div>
-                <div data-bind="value: $root.chosenNameList2('Controle de Fluxo')"></div>
-                <div class="bodyIf">
-                    <div class="htmlText">
-                        <strong>html:</strong> <br>
-                        '<'div><br>
-                            &nbsp &nbsp &nbsp
-                            '<'select <font color="#9faa04"> data-bind =</font>"<strong>options:</strong>
-                                <font color="#7d0081">$root.list3()</font>,
-                                <strong>selectedOptions:</strong>
-                                <font color="#eb0000">$root.chosenNameList3</font>">'<' /select> <br>
-                                    '<' /div> <br>
-                                        '<'div <font color="#9faa04"> data-bind =</font>"if: <font color="#eb0000">$root.chosenNameList3()</font>
-                                            <font color="#f88400"> == </font>
-                                            <font color="#2c8a00">'Options'</font>">'<' /div> <br>
-                                                '<'div <font color="#9faa04"> data-bind =</font>"value: $root.chosenNameList1('Texto e Transparência')">'<' /div> <br>
-                                                        '<'div <font color="#9faa04"> data-bind =</font>"value: $root.chosenNameList2('Controle de Fluxo')">'<' /div> <br>
-                                                                <br>
-                    </div>
-                    <div class="jsText">
-                        <strong>JavaScript:</strong> <br>
-                        '<'script type="text/javascript"> <br>
-                            &nbsp &nbsp &nbsp
-                            function viewModel() { <br>
-                            &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                            var self = this; <br>
-                            <br>
-                            <font color="#7d0081">self.list3</font> = ko.observableArray([ <br>
-                            &nbsp &nbsp &nbsp
-                            'Campos de Formulário', <br>
-                            &nbsp &nbsp &nbsp
-                            'Click', <br>
-                            &nbsp &nbsp &nbsp
-                            'Value', <br>
-                            &nbsp &nbsp &nbsp
-                            'Enable', <br>
-                            &nbsp &nbsp &nbsp
-                            'Disable', <br>
-                            &nbsp &nbsp &nbsp
-                            'Checked', <br>
-                            &nbsp &nbsp &nbsp
-                            <font color="#2c8a00">'Options'</font>, <br>
-                            ]); <br>
-                            <font color="#eb0000">self.chosenNameList3</font> = ko.observable<font color="#f88400">()</font>; <br>
-                            }; <br>
-                            '<' /script>
-                    </div>
-                </div>
-            </div>
-
-
         </div>
-    </div>
-    <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
-    <script type="text/javascript">
-        function viewModel() {
-            var self = this;
+        
+        <script src="https://knockoutjs.com/downloads/knockout-3.5.1.js"></script>
+        <script type="text/javascript">
+            function viewModel() {
+                var self = this;
 
-            //{description:"", checked: false}
-            self.list = ko.observableArray([]);
+                //{description:"", checked: false}
+                self.list = ko.observableArray([]);
 
-            self.list1 = ko.observableArray([
-                'Texto e Transparência',
-                'Visible',
-                'Text',
-                'CSS',
-                'Style',
-                'Attr'
-            ]);
-            self.chosenNameList1 = ko.observable();
+                self.list1 = ko.observableArray([
+                    'Texto e Transparência',
+                    'Visible',
+                    'Text',
+                    'CSS',
+                    'Style',
+                    'Attr'
+                ]);
+                self.chosenNameList1 = ko.observable();
 
-            self.list2 = ko.observableArray([
-                'Controle de Fluxo',
-                'If',
-                'Foreach',
-                'Ifnot'
-            ]);
-            self.chosenNameList2 = ko.observable();
+                self.list2 = ko.observableArray([
+                    'Controle de Fluxo',
+                    'If',
+                    'Foreach',
+                    'Ifnot'
+                ]);
+                self.chosenNameList2 = ko.observable();
 
-            self.list3 = ko.observableArray([
-                'Campos de Formulário',
-                'Click',
-                'Value',
-                'Enable',
-                'Disable',
-                'Checked',
-                'Options'
-            ]);
-            self.chosenNameList3 = ko.observable();
+                self.list3 = ko.observableArray([
+                    'Campos de Formulário',
+                    'Click',
+                    'Value',
+                    'Enable',
+                    'Disable',
+                    'Checked',
+                    'Options'
+                ]);
+                self.chosenNameList3 = ko.observable();
 
-            
-           self.isNotClickable = ko.observable(function(){ return false});
+                self.isNotClickable = ko.observable(function () { return false });
 
-            self.itemDescription = ko.observable("");
+                self.itemDescription = ko.observable("");
 
-            self.alert = ko.observable({
-                show: false,
-                message: "Formulário pronto",
-                type: "info"
-            });
+                self.alert = ko.observable({
+                    show: false,
+                    message: "Formulário pronto",
+                    type: "info"
+                });
 
-            self.addItem = function () {
-                if (self.itemDescription() == "") {
-                    self.alert({
-                        show: true,
-                        message: "Preencha a descrição do item",
-                        type: "warning"
-                    });
-                } else {
-                    self.list.push({
-                        description: self.itemDescription(),
-                        check: ko.observable(false)
-                    });
-                    self.itemDescription("");
-                    self.alert({
-                        show: true,
-                        message: "Item incluido",
-                        type: "info"
-                    });
-                }
-            };
+                self.addItem = function () {
+                    if (self.itemDescription() == "") {
+                        self.alert({
+                            show: true,
+                            message: "Preencha a descrição do item",
+                            type: "warning"
+                        });
+                    } else {
+                        self.list.push({
+                            description: self.itemDescription(),
+                            check: ko.observable(false)
+                        });
+                        self.itemDescription("");
+                        self.alert({
+                            show: true,
+                            message: "Item incluido",
+                            type: "info"
+                        });
+                    }
+                };
 
-            self.checkedItens = ko.computed(function () {
+                self.checkedItens = ko.computed(function () {
 
-                var count = self.list().filter(function (item) {
-                    return item.check();
-                }).length;
-            
-                return count;
-            })
-            
-            self.notCheckedItens = ko.computed(function () {
+                    var count = self.list().filter(function (item) {
+                        return item.check();
+                    }).length;
 
-                var count = self.list().filter(function (item) {
-                    return !item.check();
-                }).length;
+                    return count;
+                })
 
-                return count;
-            })
+                self.notCheckedItens = ko.computed(function () {
 
-        }
+                    var count = self.list().filter(function (item) {
+                        return !item.check();
+                    }).length;
 
-        vm = new viewModel();
-        ko.applyBindings(vm);
-    </script>
+                    return count;
+                })
+            }
+
+            vm = new viewModel();
+            ko.applyBindings(vm);
+        </script>
 </body>
 
 </html>
